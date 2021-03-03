@@ -13,6 +13,12 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 
+#追加 
+try:
+    from .local_settings import *
+except ImportError:
+    pass
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,13 +31,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-#追加 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
-ALLOWED_HOSTS = ["analyze-to-slot.herokuapp.com"]
+# ALLOWED_HOSTS = ["analyze-to-slot.herokuapp.com"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #追加
 ]
 
 ROOT_URLCONF = 'analyze_to_slot.urls'
@@ -143,3 +146,5 @@ STATICFILES_DIRS = (
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
+    import django_heroku #追加
+    django_heroku.settings(locals()) #追加
