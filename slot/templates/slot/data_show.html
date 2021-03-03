@@ -1,0 +1,88 @@
+{% load getData_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href={% static 'slot/css/data_show.css' %}>
+  <script src="{% static 'slot/js/data_show.js' %}"></script>
+  
+  <title>slot/Top</title>
+</head>
+
+<body>
+  <header style="display: flex;">
+    <h1>{{slot_name}} データ一覧</h1>
+    <div id="font-size_section">
+      <label for="select_font-size">文字サイズ:</label>
+
+      <select name="select_font" id="select_font-size">
+          <option value="">文字サイズ選択</option>
+          <option value="1px">極小</option>
+          <option value="small">小</option>
+          <option value="medium">普通</option>
+      </select>
+    </div>
+  </header>
+  
+  <div>
+    <!-- 台番号一覧をまず表示 -->
+    <table border="1" style="display: flex;">
+      <tbody>
+        <tr>
+          <td class="blank">&nbsp;</td>
+          <td></td>
+        </tr>
+        {% for number in number_list %}
+          <tr>
+            <td class="blank">&nbsp;</td>
+            <td rowspan="4">{{number}}</td>
+          </tr>
+          <tr>
+            <td class="blank">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="blank">&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="blank">&nbsp;</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      
+      <!-- 日付ごとに画面要素作成 -->
+      {% for date in date_list %}
+        <tbody>
+          <tr>
+            <th colspan="2" nowrap class="date">{{date}}</th>
+          </tr>
+          <!-- 台番号分　描画 -->
+
+          {% for number in number_list %}   
+            <tr>
+              <td nowrap>BB：{% getData 'bb' date number slot_data_list %}</td>
+              <td nowrap>RB：{% getData 'rb' date number slot_data_list %}</td>
+            </tr>
+            <tr>
+              <td nowrap>総回転数：{% getData 'total_game' date number slot_data_list %}</td>
+              <td nowrap>合算：{% getData 'bonus_average' date number slot_data_list %}</td>
+            </tr>
+            <tr>
+              <td colspan="2" nowrap>設定</td>
+            </tr>
+            <tr>
+              <td colspan="2" class="set_class" nowrap>{% getData 'class_field' date number slot_data_list %}</td>
+            </tr>
+          {% endfor %}
+
+        </tbody>
+      {% endfor %}
+
+
+    </table>
+
+  </div>
+</body>
+</html>

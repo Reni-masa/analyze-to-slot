@@ -1,0 +1,15 @@
+.blank {
+  width: 0px;
+}
+table {
+  border-right:none;
+  border-top:none;
+  /* font-size: small; */
+}
+tbody {
+  border:1px solid black;
+}
+
+#font-size_section {
+  margin: 0 auto;
+}
