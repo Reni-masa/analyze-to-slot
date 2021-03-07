@@ -1,1 +1,1 @@
-web: gunicorn analyze_to_slot.wsgi --log-file -
+web: gunicorn manage:app --log-file=-
