@@ -10,6 +10,8 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
+import pymysql
+pymysql.install_as_MySQLdb()
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'analyze_to_slot.settings')
 
