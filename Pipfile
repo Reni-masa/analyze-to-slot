@@ -9,6 +9,7 @@ django = "*"
 dj-database-url = "*"
 pymysql = "*"
 django-on-heroku = "*"
+django-heroku = "*"
 
 [dev-packages]
 
