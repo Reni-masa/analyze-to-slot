@@ -8,10 +8,7 @@ import MySQLdb
 
 # トップページ　機種一覧
 def index(request):
-  try:
-    slot_lists = SlotInformation.objects.all()
-  except MySQLdb.Error as ex:
-    error = ex
+  slot_lists = SlotInformation.objects.all()
 
   slot_list = []
   for slot in slot_lists:
@@ -19,7 +16,6 @@ def index(request):
 
   params = {
     'slot_list' : slot_list,
-    'error_msg': error,
   }
   print(params)
   return render(request, 'slot/index.html', params)
