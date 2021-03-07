@@ -20,6 +20,9 @@ heroku
 【URL】
 https://analyze-to-slot.herokuapp.com/slot/
 
+<img width="1440" alt="スクリーンショット 2021-03-07 22 46 22" src="https://user-images.githubusercontent.com/46840997/110243155-89e45380-7f9c-11eb-8c44-d77e7792ebc2.png">
+
+
 【構成図】
 heroku環境で別アプリとして取得しているデータの参照する。
 
