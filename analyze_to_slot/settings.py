@@ -30,8 +30,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 
 # ALLOWED_HOSTS = ["analyze-to-slot.herokuapp.com"]
@@ -146,7 +146,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-if not DEBUG:
-# if DEBUG:
+# if not DEBUG:
+if DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     django_heroku.settings(locals() ,databases=False) #追加
