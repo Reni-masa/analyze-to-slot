@@ -2,19 +2,24 @@ from django.shortcuts import render
 from .models import SlotInformation, SlotGameData
 from datetime import datetime, date, timedelta
 from dateutil.relativedelta import relativedelta
+import MySQLdb
 
 # Create your views here.
 
 # トップページ　機種一覧
 def index(request):
-  # slot_lists = SlotInformation.objects.all()
+  try:
+    slot_lists = SlotInformation.objects.all()
+  except MySQLdb.Error as ex:
+    error = ex
 
-  slot_list = [] 
-  # for slot in slot_lists:
-  #   slot_list.append(slot)
+  slot_list = []
+  for slot in slot_lists:
+    slot_list.append(slot)
 
   params = {
     'slot_list' : slot_list,
+    'error_msg': error,
   }
   print(params)
   return render(request, 'slot/index.html', params)
