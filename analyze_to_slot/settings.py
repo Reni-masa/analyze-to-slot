@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku #追加
 
 #追加 
 try:
@@ -146,5 +147,4 @@ STATICFILES_DIRS = (
 
 if not DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
-    import django_heroku #追加
     django_heroku.settings(locals()) #追加
