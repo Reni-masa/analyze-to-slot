@@ -3,17 +3,15 @@ from .models import SlotInformation, SlotGameData
 from datetime import datetime, date, timedelta
 from dateutil.relativedelta import relativedelta
 
-from django.db import connection #todo削除
-
 # Create your views here.
 
 # トップページ　機種一覧
 def index(request):
-  slot_lists = SlotInformation.objects.all()
+  # slot_lists = SlotInformation.objects.all()
 
   slot_list = [] 
-  for slot in slot_lists:
-    slot_list.append(slot)
+  # for slot in slot_lists:
+  #   slot_list.append(slot)
 
   params = {
     'slot_list' : slot_list,
