@@ -146,7 +146,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# if not DEBUG:
-if DEBUG:
+if not DEBUG:
+# if DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
     django_heroku.settings(locals() ,databases=False) #追加
