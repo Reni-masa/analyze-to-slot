@@ -149,4 +149,4 @@ STATICFILES_DIRS = (
 # if not DEBUG:
 if DEBUG:
     SECRET_KEY = os.environ['SECRET_KEY']
-    django_heroku.settings(locals()) #追加
+    django_heroku.settings(locals() ,databases=False) #追加
