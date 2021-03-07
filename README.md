@@ -6,7 +6,7 @@ html,css,jquery
 
 ・バックエンド
 
-pyrhon、django
+python、django
 
 ・インフラ
 
