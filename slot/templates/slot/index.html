@@ -11,53 +11,5 @@
     <a href={% url 'show_data' slot.id %}>{{slot.slot_name}}</a>
   {% endfor %}
 
-  {% for item in data %}
-    {{item}}
-  {% endfor %}
-  {% with name='aaa' %}
-    {{name}}
-  {% endwith %}
-
-  <div style="display: flex;">
-    <table border="1">
-      <tbody>
-        <tr>
-          <td></td>
-          <td colspan="2">2021/02/20</td>
-        </tr>
-        <tr>
-          <td rowspan="4">100</td>
-          <td>BB：20</td>
-          <td>RB：20</td>
-        </tr>
-        <tr>
-          <td>総回転数：2000</td>
-          <td>合算：1/200</td>
-        </tr>
-        <tr>
-          <td colspan="2">設定</td>
-        </tr>
-        <tr>
-          <td colspan="2">2</td>
-        </tr>
-        <tr>
-          <td rowspan="4">200</td>
-          <td>BB：30</td>
-          <td>RB：30</td>
-        </tr>
-        <tr>
-          <td>総回転数：3000</td>
-          <td>合算：1/300</td>
-        </tr>
-        <tr>
-          <td colspan="2">設定</td>
-        </tr>
-        <tr>
-          <td colspan="2">3</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
 </body>
 </html>

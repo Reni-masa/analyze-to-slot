@@ -10,17 +10,6 @@ from django.db import connection #todo削除
 # トップページ　機種一覧
 def index(request):
   slot_lists = SlotInformation.objects.all()
-  data = SlotInformation.objects.all().values()
-  print("================")
-  print(data)
-  print("================")
-
-
-  item_dict = []
-  for item in data:
-    item_dict.append(item)
-
-  result = list(filter(lambda x: x["id"] > 2, item_dict))
 
   slot_list = [] 
   for slot in slot_lists:
@@ -28,7 +17,6 @@ def index(request):
 
   params = {
     'slot_list' : slot_list,
-    'data' : data,
   }
   print(params)
   return render(request, 'slot/index.html', params)

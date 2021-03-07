@@ -3,6 +3,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = '=!5kg%4ohchnoy4sf5)&e8+m99#hkfi=145_g#)=^4%_t@%$$$'
+
 DATABASES = {
   'default': {
     # 既存コード
